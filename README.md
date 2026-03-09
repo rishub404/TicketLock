@@ -1,20 +1,11 @@
-# [ TICKET_LOCK ] // DISTRIBUTED CONCURRENCY CONTROL
-
-> **STATUS:** ACTIVE_DEVELOPMENT
-> **NODE:** KOLKATA_REGION
-> **OPERATOR:** RISHAV
-> **ENVIRONMENT:** FEDORA / ANTIGRAVITY
-
----
-
-## // ARCHIVE_001: SYSTEM OVERVIEW
+## SYSTEM OVERVIEW
 **TicketLock** is a production-grade, distributed ticketing engine engineered to handle extreme concurrency. The primary directive is the absolute prevention of race conditions, double-bookings, and state inconsistencies during high-traffic booking windows.
 
 It achieves this through a robust distributed locking mechanism utilizing the Redlock algorithm, ensuring that once a transaction is initiated, the asset is exclusively isolated until commit or timeout.
 
 ---
 
-## // ARCHIVE_002: ARCHITECTURE & STACK
+## ARCHITECTURE & STACK
 * **Backend:** Java 17, Spring Boot 3.x, Spring Data JPA, Spring Security (Maven)
 * **State (Source of Truth):** PostgreSQL 15 (ACID-compliant relational state)
 * **Distributed Lock Coordinator:** Redis 7 via Redisson
@@ -23,7 +14,7 @@ It achieves this through a robust distributed locking mechanism utilizing the Re
 
 ---
 
-## // ARCHIVE_003: THE CORE ENGINEERING DIRECTIVE
+## THE CORE ENGINEERING DIRECTIVE
 The system is designed to seamlessly process simultaneous requests for the exact same `ticket_id` by enforcing the following sequence:
 
 1. **[REQ_INTERCEPT]** Spring Boot API receives concurrent booking requests.
@@ -35,7 +26,7 @@ The system is designed to seamlessly process simultaneous requests for the exact
 
 ---
 
-## // ARCHIVE_004: SYSTEM INITIALIZATION
+## SYSTEM INITIALIZATION
 
 ### Prerequisites
 * JDK 17
@@ -67,6 +58,3 @@ The system is designed to seamlessly process simultaneous requests for the exact
    npm run dev
    ```
 
----
-
-> END_OF_FILE
