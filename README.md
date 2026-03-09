@@ -12,7 +12,7 @@
 
 Built for scale and reliability, the architecture ensures that once a user initiates a transaction, the underlying asset is completely isolated until process completion or timeout.
 
----
+
 
 ## // ARCHIVE_002: THE CORE STACK
 * **Language:** Java 
