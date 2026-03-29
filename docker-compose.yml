@@ -32,6 +32,24 @@ services:
       timeout: 5s
       retries: 5
 
+  cassandra:
+    image: cassandra:4.1
+    container_name: ticketlock-cassandra
+    ports:
+      - "9042:9042"
+    environment:
+      - CASSANDRA_CLUSTER_NAME=TicketLockCluster
+      - CASSANDRA_DC=datacenter1
+      - CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch
+    volumes:
+      - cassandradata:/var/lib/cassandra
+    healthcheck:
+      test: ["CMD", "cqlsh", "-e", "describe keyspaces"]
+      interval: 15s
+      timeout: 10s
+      retries: 10 
+
 volumes:
   pgdata:
   redisdata:
+  cassandradata:
